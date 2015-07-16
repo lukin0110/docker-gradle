@@ -1,20 +1,18 @@
 Gradle Dockerfile
 =================
 
-Gradle Container to develop & build Java projects.
+Gradle Container to develop & build Java projects. It uses [openjdk-8-jdk](http://openjdk.java.net/projects/jdk8/) 
+and [Gradle 2.5](https://docs.gradle.org/2.5-rc-1/release-notes).
 
 This repository contains **Dockerfile** of [Gradle](https://www.gradle.org/) for [Docker](https://www.docker.com/)'s 
 [automated build](https://registry.hub.docker.com/u/lukin0110/gradle/) published to the public 
 [Docker Hub Registry](https://registry.hub.docker.com/).
 
-It uses [openjdk-8-jdk](http://openjdk.java.net/projects/jdk8/) and 
-[Gradle 2.5](https://docs.gradle.org/2.5-rc-1/release-notes).
-
 ## Base Docker Image
 
 * [java:8-jre](https://registry.hub.docker.com/_/java/)
 
-## Pull the image
+## Pull image
 ```
 docker pull lukin0110/gradle
 ```
