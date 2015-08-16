@@ -15,6 +15,8 @@ WORKDIR /data/app
 # Define volume: your local app code directory can be mounted here
 # Mount with: -v /your/local/directory:/data/app
 VOLUME ["/data/app"]
+# Allow the host to use gradle cache, otherwise gradle will always download plugins & artifacts on every build
+VOLUME ["/root/.gradle/caches/"]
 
 # Install Java (Open JDK)
 RUN \
