@@ -8,8 +8,18 @@
 FROM java:8-jre
 MAINTAINER Maarten Huijsmans <maarten.huijsmans@gmail.com>
 
+# Define working directory.
+RUN mkdir -p /data/app
+WORKDIR /data/app
+
+# Define volume: your local app code directory can be mounted here
+# Mount with: -v /your/local/directory:/data/app
+VOLUME ["/data/app"]
+
 # Install Java (Open JDK)
-RUN apt-get update && apt-get -y install unzip openjdk-8-jdk
+RUN \
+    apt-get update && \
+    apt-get -y install unzip openjdk-8-jdk
 
 # Download and install Gradle
 RUN \
@@ -21,14 +31,6 @@ RUN \
 # Export some environment variables
 ENV GRADLE_HOME=/usr/local/gradle-2.5
 ENV PATH=$PATH:$GRADLE_HOME/bin JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
-# Define working directory.
-RUN mkdir -p /data/app
-WORKDIR /data/app
-
-# Define volume: your local app code directory can be mounted here
-# Mount with: -v /your/local/directory:/data/app
-VOLUME ["/data/app"]
 
 # Define default command.
 CMD ["bash"]
